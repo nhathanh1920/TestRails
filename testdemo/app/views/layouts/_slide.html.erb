@@ -1,0 +1,19 @@
+<div id="sidebar">
+	
+	<ul>
+		<li class="category">Website</li>
+		<li><%= link_to "All Post", root_path %></li>
+		<li><%= link_to "New Post", 'posts/new' %></li>
+	</ul>
+
+	<ul>
+		<li class="category">Social</li>
+		
+		<li><a href="https://github.com/mackenziechild">Github</a></li>
+		<li><a href="mailto:nguyenhoangnhat07@gmail.com">Email</a></li>
+	</ul>
+
+	<% if logged_in? %>
+	<p class="sign_in"><%#= link_to "Admin Login", new_user_session_path %>Admin Login</p>
+	<% end %>
+</div>

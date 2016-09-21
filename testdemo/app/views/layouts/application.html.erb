@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title><%= full_title(yield(:title)) %></title>
+	<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+	<%= stylesheet_link_tag 'application', 'http://fonts.googleapis.com/css?family=Raleway:400,700' %>
+	<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+	<%= favicon_link_tag 'favicon.ico' %>
+	<%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render 'layouts/slide' %>
+	<div class="container">
+		<div id="main_content">
+			<%= render 'layouts/header' %>
+
+			<% flash.each do |name, msg| %>
+			<%= content_tag(:div, msg, class: "alert") %>
+			<% end %>
+			<% flash.each do |message_type, message| %>
+			<div class="alert alert-<%= message_type %>"><%= message %></div>
+			<% end %>
+			<%= yield %>
+		</div>
+	</div>
+	
+</body>
+</html>

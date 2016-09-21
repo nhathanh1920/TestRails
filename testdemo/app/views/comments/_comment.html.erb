@@ -1,0 +1,15 @@
+<% @comments.each do |comment| %>
+	<div class="comment clearfix">
+		<div class="comment_content">
+			<p class="comment_name"><strong><%= comment.user.try(:name) %></strong></p>
+			<p class="comment_body"><%= comment.body %></p>
+			<p class="comment_time"><%= comment.created_at %></p>
+		</div>
+
+		<% if current_user?(comment.user) %>
+	      | <%= link_to 'Edit', edit_comment_path(comment) %> |<%= link_to "delete", comment, method: :delete,
+	                                       data: { confirm: "You sure?" } %>
+	    <% end %>
+	</div>
+<% end %>
+

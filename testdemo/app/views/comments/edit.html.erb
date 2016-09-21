@@ -1,0 +1,17 @@
+<div>
+	<h1>Edit Comment</h1>
+	<%= form_for(@comment) do |f| %>
+      
+      <div class="row">
+        <div class="col-md-8">
+          <%= f.text_area :body, placeholder: "Write a comment!" %>
+        </div>
+        <%= f.hidden_field :user_id, value: current_user.id %>
+
+        <%= f.hidden_field :post_id, value: @comment.post_id %>
+        <div class="col-md-2">
+        <%= f.submit "Comment", class: "btn btn-primary" %>
+        </div>
+      </div>
+    <% end %>
+</div>

@@ -1,0 +1,6 @@
+<%= @user.name %>, <%= @user.email %>
+	<section class="stats">
+		<%= render 'shared/stats' %>
+	</section>
+
+	<%= render 'layouts/follow_form' if logged_in? %>
